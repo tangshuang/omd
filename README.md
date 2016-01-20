@@ -18,25 +18,25 @@
     
     // CommonJS
     if (typeof module !== 'undefined' && typeof exports === 'object') {
-    	_init();
-	exports.export1 = _export1;
-	exports.export2 = _export2;
+		_init();
+		exports.export1 = _export1;
+		exports.export2 = _export2;
     }
     // amd & cmd
     else if (typeof define === 'function' && (define.amd || define.cmd)) {
         define(function() {
-        	_init();
-        	var exports = {};
-        	exports.export1 = _export1;
+		_init();
+		var exports = {};
+		exports.export1 = _export1;
 		exports.export2 = _export2;
-        	return exports;
+		return exports;
         });
     }
     // javascript
     else {
-    	_init();
-    	this.export1 = _export1;
-	this.export2 = _export2;
+		_init();
+		this.export1 = _export1;
+		this.export2 = _export2;
     }
 }).call(function() {
     return this || (typeof window !== 'undefined' ? window : global);
