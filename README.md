@@ -1,7 +1,18 @@
 # omd
 兼容CommonJS amd (RequireJS) &amp; cmd (SeaJS)的插件定义方法
 
-请看plugin.js里面的代码，核心代码为：
+plugin.omd.js中代码为最终代码，有demo jquery、demo zepto、seajs和requirejs的演示代码。nodejs尚未测试。
+
+用法：
+
+下载plugin.omd.js，打开它，里面已经解释了哪个地方应该放什么东西。
+
+一般的插件都会提供完整版和min版，打开完整版，把真正的代码插件拷贝到plugin.omd.js中的指定位置。一些插件已经做了amd兼容，因此，你要进行辨识。
+如果你不是很清楚，也可以提交issue，让我帮你辨识。
+
+----------------------------------------------------------
+
+老版本的代码如下：
 
 ```
 ;(function(){
