@@ -1,6 +1,8 @@
 !function(fun){
     "use strict";
     
+    if(typeof $ === 'undefined') var $ = '';
+    
     // 当define被定义的情况下
     if(typeof define == 'function' && (define.amd != undefined || define.cmd != undefined)) {
         define(function() {
