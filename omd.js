@@ -35,13 +35,13 @@
     */
     // 插件代码结束
 
-    if(exports == undefined) var exports = {};
+    var ex = {};
     // 接口开始
     /*
-    exports.fillText = function(selector,text) {
+    ex.fillText = function(selector,text) {
         $(selector).fillText(text);
     };
     */
     // 接口结束
-    return exports;
+    return ex;
 });
