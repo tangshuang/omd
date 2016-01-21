@@ -13,6 +13,7 @@
         // CommonJS NodeJS
         if(typeof module !== 'undefined' && typeof exports === 'object') {
             // 由于exports被定义，函数中的exports已经是全局变量，因此，这里就不进行任何操作
+            module.exports = ex;
         }
         // Javascript，接口将直接被作为一个函数
         else {
