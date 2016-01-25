@@ -1,4 +1,4 @@
-!function(fun){
+!function(factory){
     "use strict";
     
     if(typeof $ === 'undefined') var $ = '';
@@ -6,12 +6,12 @@
     // 当define被定义的情况下
     if(typeof define == 'function' && (define.amd != undefined || define.cmd != undefined)) {
         define(function() {
-            return fun($);
+            return factory($);
         });
     }
     // 当define没有被定义的情况下
     else {
-        var ex = fun($);
+        var ex = factory($);
         // CommonJS NodeJS
         if(typeof module !== 'undefined' && typeof exports === 'object') {
             // 由于exports被定义，函数中的exports已经是全局变量，因此，这里就不进行任何操作
