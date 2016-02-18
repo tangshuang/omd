@@ -5,10 +5,19 @@
 
 !function(spacename,dependencies,window,factory){
     // 当define被定义的情况下
-    if(typeof define == 'function' && (define.amd != undefined || define.cmd != undefined)) {
-        define(dependencies,function() {
-            return factory(window);
-        });
+    if(typeof define == 'function') {
+        // requirejs
+        if(define.amd != undefined) {
+            define(dependencies,function() {
+                return factory(window,require);
+            });
+        }
+        // seajs
+        else if(define.cmd != undefined) {
+            define(dependencies,function(require) {
+                return factory(window,require);
+            });
+        }
     }
     // 当define没有被定义的情况下
     else {
@@ -23,17 +32,18 @@
             window[spacename] = ex;
         }
     }
-}('spaceName',['jquery'],window,function(window){
+}('spaceName',['jquery'],window,function(window,require){
     var $ = (window.$ != undefined ? window.$ : null);
     // var $ = require('jquery');
 
     /**
      * 如何上手呢？
-     * 1. 修改上面的'spaceName'为当前文件的名称（不要后缀）【在非模块化环境中使用】
+     * 1. 修改上面的'spaceName'为当前文件的名称（不要后缀）【在非模块化环境中使用其接口会加载到window中，例如你可以使用类似window.spaceName.function()来调用某个接口函数】
      * 2. 修改上面['jquery']的内容为依赖包列表【在模块化环境中可能使用】
      * 3. window就是window，有你需要的window属性
      * 4. 加载$，如果你的项目中依赖了jQuery或Zepto，则选择上面注释中的一种，使$可用
-     * 5. 接口，通过return返回接口
+     * 5. 在requirejs或seajs中，使用require
+     * 6. 接口，通过return返回接口
      */
-     
+
 });
