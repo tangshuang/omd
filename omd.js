@@ -1,3 +1,7 @@
+/**
+ * OMD 1.1.0
+ */
+
 !function(dependencies,window,factory){
     // amd || cmd
     if(typeof define == 'function') {
@@ -29,7 +33,12 @@
         }
     }
 }(['jquery'],window,function(window,require){
+    /*
+    if(typeof window.$ === 'undefined')
+        throw new Error("jQuery required");
+
     var $ = (window.$ != undefined ? window.$ : null);
+    */
 
     // your code here
 
