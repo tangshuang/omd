@@ -15,12 +15,6 @@
         if(typeof module !== 'undefined' && typeof exports === 'object') {
             module.exports = ex;
         }
-        // Javascript: exports as window functions
-        else {
-            for(var i in ex) {
-                window[i] = ex[i];
-            }
-        }
     }
 }(['jquery'],function(){
     // your code begin
