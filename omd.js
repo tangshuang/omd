@@ -10,7 +10,7 @@
         module.exports = factory();
     }
     else {
-        window[name] = factory();
+        this[name] = factory();
     }
 }('your-module-name',['jquery'],function(){ // you should change 'your-module-name' and ['jquery'] to the value you need
     
