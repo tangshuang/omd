@@ -2,20 +2,18 @@
  * OMD 1.1.2
  */
 
-!function(dependencies,factory){
-    // amd || cmd
+!function(name,dependencies,factory){
     if(typeof define == 'function' && (define.cmd || define.amd)) {
-        define(dependencies,function() {
-            return factory();
-        });
+        define(dependencies,factory);
+    }
+    else if(typeof module !== 'undefined' && typeof exports === 'object') {
+        module.exports = factory();
     }
     else {
-        var ex = factory();
-        // CommonJS NodeJS
-        if(typeof module !== 'undefined' && typeof exports === 'object') {
-            module.exports = ex;
-        }
+        window[name] = factory();
     }
-}(['jquery'],function(){
-    // your code begin
+}('your-module-name',['jquery'],function(){ // you should change 'your-module-name' and ['jquery'] to the value you need
+    
+    // your code here
+    
 });
