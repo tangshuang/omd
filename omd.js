@@ -7,6 +7,7 @@
         define(dependencies,factory);
     }
     else if(typeof module !== 'undefined' && typeof exports === 'object') {
+        require('jquery');
         module.exports = factory();
     }
     else {
