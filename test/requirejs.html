@@ -8,31 +8,17 @@
 <div id="test1"></div>
 <div id="test2"></div>
 
-
-<script src="js/sea.js"></script>
-<script>
-    seajs.config({
-        alias: {
-            jquery : 'jquery-2.2.0.min',
-            plugin : 'plugin'
-        }
-    });
-    seajs.use(['main']);
-</script>
-
-<!--
 <script src="js/require.js"></script>
 <script>
     require.config({
         baseUrl: './js/',
         paths: {
-            jquery : 'jquery-2.2.0.min',
-            plugin : 'plugin'
+            jquery : 'jquery-2.2.0.min'
         }
     });
-    require(['main']);
+    require(['./../main-requirejs']);
 </script>
--->
+
 
 </body>
 </html>
