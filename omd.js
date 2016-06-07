@@ -6,7 +6,7 @@
  * Source code: https://github.com/tangshuang/omd
  */
 
-!function(name,factory){
+!function(factory){
     "use strict";
 
     if(typeof define == 'function' && (define.cmd || define.amd)) { // amd & cmd
@@ -18,13 +18,13 @@
                 };
                 return requires[name];
             }
-            // ------------------
+            // ------------------ remember: if you dont need something, dont add it into dependencies
             return factory(_require_);
         });
     }
     else if(typeof module !== 'undefined' && typeof exports === 'object') { // nodejs
         // --------------- dependencies copy from up
-        var _require_ = function(name) {
+        let _require_ = function(name) {
             var requires = {
                 'jquery' : require('jquery')
             };
@@ -34,9 +34,9 @@
         module.exports = factory(_require_);
     }
     else { // none
-        this[name] = factory();
+        this['main'] = factory(); // change 'main' to the name of this component
     }
-}('main',function(_require_){ // change 'main' to the name of this component
+}(function(_require_){ 
     
     // your code here
     // now you can use _require_ to require your dependencies written by yourself
@@ -52,6 +52,5 @@
     /** use
     var myPlugin = _require_('my-plugin');
     **/
-    // remember: if you dont need something, dont add it into dependencies
     
 });
