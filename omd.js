@@ -34,7 +34,7 @@
         module.exports = factory(_require_);
     }
     else { // none
-        let _require_ = function(component){}; // do nothing
+        let _require_ = function(name){}; // do nothing
         this['main'] = factory(_require_); // change 'main' to the name of this component
     }
 }(function(_require_){ 
