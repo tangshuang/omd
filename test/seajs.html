@@ -5,17 +5,17 @@
     <title>用于SeaJS演示</title>
 </head>
 <body>
-<div id="test1"></div>
-<div id="test2"></div>
+<div id="text"></div>
 
 <script src="js/sea.js"></script>
 <script>
     seajs.config({
+    	//base: "./js/",
         alias: {
             jquery : 'jquery-2.2.0.min'
         }
     });
-    seajs.use(['./main-seajs']);
+    seajs.use(['main']);
 </script>
 
 </body>

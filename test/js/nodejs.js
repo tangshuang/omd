@@ -1,9 +1,5 @@
 /**
- * Name: OMD
- * Description: javascript run in amd cmd and node
- * Version: 1.2.0
- * Author: tison <mail@tangshuang.net>
- * Source code: https://github.com/tangshuang/omd
+ * test for node, exec `node nodejs.js` in cmd
  */
 
 !function(factory){
@@ -11,18 +7,13 @@
 
     if(typeof define == 'function' && (define.cmd || define.amd)) { // amd & cmd
         define(function(require){
-            // --------------- dependencies
+            // --------------- dependencies you should write it by yourself
             var _require_ = function(name) {
-                var requires = {
-                    //'jquery' : require('jquery')
-
-                    /** 
-                     * relative path like `require('./module')` is not allowed 
-                     */
-                };
+                var requires = {};
                 return requires[name];
             }
-            return factory(_require_);
+            // ------------------ remember: if you dont need something, dont add it into dependencies
+            return factory(require);
         });
     }
     else if(typeof module !== 'undefined' && typeof exports === 'object') { // nodejs
@@ -32,7 +23,8 @@
         window['main'] = factory(function(name){}); // change 'main' to the name of this component
     }
 }(function(_require_){ 
-    
-    // var $ = _require_('jquery');
+
+    var mod = _require_('./module');
+    mod.log();
 
 });

@@ -11,17 +11,12 @@
 
     if(typeof define == 'function' && (define.cmd || define.amd)) { // amd & cmd
         define(function(require){
-            // --------------- dependencies
+            // --------------- dependencies you should write it by yourself
             var _require_ = function(name) {
-                var requires = {
-                    //'jquery' : require('jquery')
-
-                    /** 
-                     * relative path like `require('./module')` is not allowed 
-                     */
-                };
+                var requires = {};
                 return requires[name];
             }
+            // ------------------ remember: if you dont need something, dont add it into dependencies
             return factory(_require_);
         });
     }
@@ -32,7 +27,14 @@
         window['main'] = factory(function(name){}); // change 'main' to the name of this component
     }
 }(function(_require_){ 
-    
-    // var $ = _require_('jquery');
+
+    return {
+    	alert : function() {
+    		alert('OK');
+    	},
+    	log : function () {
+    		console.log('OK');
+    	}
+    };
 
 });
