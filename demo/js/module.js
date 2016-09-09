@@ -6,11 +6,11 @@
  * Source code: https://github.com/tangshuang/omd
  */
 
-"use strict";
+(function(factory){
+    "use strict";
 
-!function(factory){
-    // config your module name
-    var NAME = 'myModule';
+    // change to your module name
+    var NAME = 'mymodule';
     
     if(typeof define == 'function' && (define.cmd || define.amd)) { // amd & cmd
         define(function(require){
@@ -21,7 +21,8 @@
                  * 2. use require, moudule name should be defined before
                  * 3. relative path is not allowed in cmd & amd mode
                  */
-                'jquery' : require('jquery')
+                // 'jquery' : require('jquery'),
+                // 'bootstrap' : require('bootstrap')
             };
             var _require_ = function(key) {
                 return requires[key];
@@ -33,25 +34,24 @@
         module.exports = factory(require); // in node, require can be used everywhere generally
     }
     else { // none module
-        window[NAME] = factory(function(key){}); // change 'main' to the name of this component, because we may use _require_ in following function, so we should give a nothing-to-do function to fix
+        this[NAME] = factory(function(key){
+            return this[key];
+        }.bind(this));
     }
-}(function(require){
+}).call(this || (typeof window !== 'undefined' ? window : global),function(require){
+    "use strict";
     
-    require('jquery');
+    function House() {
+        this.price = 1000000;
+        this.owner = 'sonny';
+        this.city = 'New Yorks';
+    }
 
-    // constructor
-    $(document).ready(function() {
-        alert('jquery is required.');
-    });
+    House.prototype.move = function(deriction) {
+        this.city = deriction;
+    }
 
     // exports
-    return {
-        alert : function() {
-            alert('OK');
-        },
-        log : function () {
-            console.log('OK');
-        }
-    };
+    return House;
 
 });

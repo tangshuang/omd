@@ -12,13 +12,11 @@
     requirejs.config({
         baseUrl: './js/',
         paths: {
-            jquery : 'jquery-2.2.0.min',
-            omdmodule : 'module'
+            mymodule : 'module',
+            main : 'main'
         }
     });
-    requirejs(['jquery','omdmodule'], function( $,omd ) {
-	    omd.alert();
-	});
+    requirejs(['mymodule','main']);
 </script>
 
 

@@ -11,13 +11,11 @@
 <script>
     seajs.config({
         alias: {
-            jquery : 'jquery-2.2.0.min',
-            omdmodule : 'module'
+            mymodule : 'module',
+            main : 'main'
         }
     });
-    seajs.use(['jquery','omdmodule'], function( $,omd ) {
-	    omd.alert();
-	});
+    seajs.use(['mymodule','main']);
 </script>
 
 </body>

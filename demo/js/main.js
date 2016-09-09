@@ -10,7 +10,7 @@
     "use strict";
 
     // change to your module name
-    var NAME = 'omd';
+    var NAME = 'main';
     
     if(typeof define == 'function' && (define.cmd || define.amd)) { // amd & cmd
         define(function(require){
@@ -21,8 +21,7 @@
                  * 2. use require, moudule name should be defined before
                  * 3. relative path is not allowed in cmd & amd mode
                  */
-                // 'jquery' : require('jquery'),
-                // 'bootstrap' : require('bootstrap')
+                'mymodule' : require('mymodule')
             };
             var _require_ = function(key) {
                 return requires[key];
@@ -40,16 +39,15 @@
     }
 }).call(this || (typeof window !== 'undefined' ? window : global),function(require){
     "use strict";
-    
-    // require('jquery');
 
-    /**
-     * use return object to export. i.e.
-     * return {
-        name : 'module name',
-        init : function(opotions) {},
-        destory : function() {}
-     };
-     */
+    var House = require('mymodule'); // we can use require, even through in no-module environment
+    var house = new House();
+
+    console.log('Owner: ' + house.owner);
+    console.log('Prirce: ' + house.price);
+    console.log('City: ' + house.city);
+
+    house.move('Tokoy');
+    console.log('Move to: ' + house.city);
 
 });
